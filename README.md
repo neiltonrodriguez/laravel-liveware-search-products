@@ -16,22 +16,12 @@ Search de produtos com Laravel Livewire e TailwindCSS.
 
 2. Construa a imagem e inicie o container:
    ```bash
-   entre na pasta /docker e esecute o comando abaixo
+   entre na pasta do projeto 'laravel-livewire-teste' em seguida acesse 'docker' e execute o comando abaixo
    docker-compose up --build
+
+   esse comando vai subir todos os containers e rodar as migrations e seeds
    ```
 
 3. aguarde o processo todo concluir e Acesse:
-   - Web: `http://localhost:8000/`
+   - no navegador: `http://localhost:8000/`
 
-## Variáveis de Ambiente
-
-Chaves obrigatórias no `.env`:
-
-```ini
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=laravellivewire
-DB_USERNAME=root
-DB_PASSWORD=rootpass
-```
