@@ -13,8 +13,7 @@ done
 echo "MySQL disponível — executando comandos do Laravel..."
 
 php artisan key:generate
-php artisan migrate --force
-php artisan db:seed --force
+php artisan migrate --seed
 
 echo "Rodando testes automatizados..."
 php artisan test --filter=BuscaProdutoTest
