@@ -6,8 +6,8 @@ services:
     container_name: laravel_app
     restart: unless-stopped
     working_dir: /var/www
-    volumes:
-      - ../application:/var/www
+    # volumes:
+    #  - ../application:/var/www
     environment:
       - DB_HOST=mysql
     depends_on:

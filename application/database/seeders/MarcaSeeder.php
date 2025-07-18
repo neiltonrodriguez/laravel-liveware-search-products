@@ -25,7 +25,7 @@ class MarcaSeeder extends Seeder
         ];
 
         foreach ($marcas as $nome) {
-            Marca::create(['nome' => $nome]);
+            Marca::firstOrCreate(['nome' => $nome]);
         }
     }
 }

@@ -24,7 +24,7 @@ class CategoriaSeeder extends Seeder
         ];
 
         foreach ($categorias as $nome) {
-            Categoria::create(['nome' => $nome]);
+            Categoria::firstOrCreate(['nome' => $nome]);
         }
     }
 }

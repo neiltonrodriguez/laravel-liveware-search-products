@@ -25,8 +25,8 @@ class BuscaProdutoTest extends TestCase
 
     public function test_filtra_por_categorias()
     {
-        $catEletronicos = Categoria::factory()->create(['nome' => 'Eletrônicos']);
-        $catMoveis = Categoria::factory()->create(['nome' => 'Móveis']);
+        $catEletronicos = Categoria::firstOrCreate(['nome' => 'Eletrônicos']);
+        $catMoveis = Categoria::firstOrCreate(['nome' => 'Móveis']);
 
         Produto::factory()->create(['nome' => 'TV LG', 'categoria_id' => $catEletronicos->id]);
         Produto::factory()->create(['nome' => 'Sofá', 'categoria_id' => $catMoveis->id]);
@@ -46,8 +46,8 @@ class BuscaProdutoTest extends TestCase
 
     public function test_filtra_por_marcas()
     {
-        $marcaLG = Marca::factory()->create(['nome' => 'LG']);
-        $marcaSamsung = Marca::factory()->create(['nome' => 'Samsung']);
+        $marcaLG = Marca::firstOrCreate(['nome' => 'LG']);
+        $marcaSamsung = Marca::firstOrCreate(['nome' => 'Samsung']);
 
         Produto::factory()->create(['nome' => 'TV LG', 'marca_id' => $marcaLG->id]);
         Produto::factory()->create(['nome' => 'TV Samsung', 'marca_id' => $marcaSamsung->id]);
@@ -67,9 +67,9 @@ class BuscaProdutoTest extends TestCase
 
     public function test_filtra_por_nome_categoria_e_marca()
     {
-        $catEletronicos = Categoria::factory()->create(['nome' => 'Eletrônicos']);
-        $marcaLG = Marca::factory()->create(['nome' => 'LG']);
-
+        $catEletronicos = Categoria::firstOrCreate(['nome' => 'Eletrônicos']);
+        $marcaLG = Marca::firstOrCreate(['nome' => 'LG']);
+        $marcaSamsung = Marca::firstOrCreate(['nome' => 'Samsung']);
         Produto::factory()->create([
             'nome' => 'TV LG',
             'categoria_id' => $catEletronicos->id,
@@ -79,7 +79,7 @@ class BuscaProdutoTest extends TestCase
         Produto::factory()->create([
             'nome' => 'Geladeira Samsung',
             'categoria_id' => $catEletronicos->id,
-            'marca_id' => Marca::factory()->create(['nome' => 'Samsung'])->id
+            'marca_id' => $marcaSamsung->id 
         ]);
 
         Livewire::test(BuscaProdutos::class)
@@ -93,8 +93,8 @@ class BuscaProdutoTest extends TestCase
 
     public function test_filtros_persistem_apos_refresh()
     {
-        $catEletronicos = Categoria::factory()->create(['nome' => 'Eletrônicos']);
-        $marcaLG = Marca::factory()->create(['nome' => 'LG']);
+        $catEletronicos = Categoria::firstOrCreate(['nome' => 'Eletrônicos']);
+        $marcaLG = Marca::firstOrCreate(['nome' => 'LG']);
 
         $component = Livewire::test(BuscaProdutos::class)
             ->set('nome', 'TV')
