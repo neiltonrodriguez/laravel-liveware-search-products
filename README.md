@@ -12,11 +12,11 @@ Search de produtos com Laravel Livewire e TailwindCSS.
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/neiltonrodriguez/laravel-livewire-test
+   git clone https://github.com/neiltonrodriguez/laravel-livewire-search-products
 
 2. Construa a imagem e inicie o container:
    ```bash
-   entre na pasta do projeto 'laravel-livewire-teste' em seguida acesse 'docker' e execute o comando abaixo
+   entre na pasta do projeto 'laravel-livewire-search-products' em seguida acesse 'docker' e execute o comando abaixo
    docker-compose up --build
 
    esse comando vai subir todos os containers e rodar as migrations e seeds
